@@ -1,6 +1,6 @@
 {
   "name": "react-native-torch",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Torch/flashlight for react-native",
   "main": "index.js",
   "repository": {

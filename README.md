@@ -6,7 +6,7 @@ A simple React Native plugin to switch a flashlight on/off.
 
 Add support for android < 6 version.
 
-Currently supports both iOS (>= 8.0) and Android(full support) platforms.
+Currently supports both iOS (>= 8.0) and Android platforms.
 
 ## Install
 

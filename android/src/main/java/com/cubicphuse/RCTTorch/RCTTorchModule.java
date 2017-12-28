@@ -5,25 +5,19 @@
 package com.cubicphuse.RCTTorch;
 
 import android.content.Context;
+import android.hardware.Camera;
 import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Build;
 
-import android.hardware.Camera;
-import android.hardware.Camera.Parameters;
-import android.content.pm.PackageManager;
-
-import com.facebook.react.bridge.NativeModule;
 import com.facebook.react.bridge.ReactApplicationContext;
-import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
 public class RCTTorchModule extends ReactContextBaseJavaModule {
     private final ReactApplicationContext myReactContext;
-    public boolean isTorchOn = false;
-    protected Camera camera;
-    protected Parameters params;
+    private Boolean isTorchOn = false;
+    private Camera camera;
 
     public RCTTorchModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -49,20 +43,19 @@ public class RCTTorchModule extends ReactContextBaseJavaModule {
             } catch (CameraAccessException e) {
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
+            Camera.Parameters params;
+
             if (!isTorchOn) {
                 camera = Camera.open();
                 params = camera.getParameters();
-
-                params.setFlashMode(Parameters.FLASH_MODE_TORCH);
+                params.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);
                 camera.setParameters(params);
                 camera.startPreview();
                 isTorchOn = true;
-            }
-            else {
+            } else {
                 params = camera.getParameters();
-                params.setFlashMode(Parameters.FLASH_MODE_OFF);
+                params.setFlashMode(Camera.Parameters.FLASH_MODE_OFF);
 
                 camera.setParameters(params);
                 camera.stopPreview();
@@ -72,4 +65,3 @@ public class RCTTorchModule extends ReactContextBaseJavaModule {
         }
     }
 }
-

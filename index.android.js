@@ -1,4 +1,7 @@
-// @flow
+/**
+ * @providesModule react-native-torch
+ * @flow
+ */
 import { NativeModules, PermissionsAndroid, Alert } from 'react-native';
 
 const { Torch } = NativeModules;
@@ -17,7 +20,7 @@ async function showRationaleDialog(title: string, message: string): Promise<*> {
       text: 'OK',
       onPress: () => done()
     }
-  ]);
+  ], { cancelable: false });
 
   return result;
 }

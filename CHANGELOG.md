@@ -1,5 +1,13 @@
 ## Release Notes
 
+### 1.1.1
+* Fix for import issue
+
+### 1.1.0
+
+* Adds support for all Android versions
+* Permission check for Android > 25
+
 ### 1.0.1
 
 * RN >= 0.47 compatibility

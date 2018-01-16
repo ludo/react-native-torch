@@ -15,12 +15,17 @@ async function showRationaleDialog(title: string, message: string): Promise<*> {
     done = resolve;
   });
 
-  Alert.alert(title, message, [
-    {
-      text: 'OK',
-      onPress: () => done()
-    }
-  ], { cancelable: false });
+  Alert.alert(
+    title,
+    message,
+    [
+      {
+        text: 'OK',
+        onPress: () => done()
+      }
+    ],
+    { cancelable: false }
+  );
 
   return result;
 }
@@ -53,8 +58,22 @@ async function requestCameraPermission(
   }
 }
 
+async function switchState(newState: boolean): Promise<boolean> {
+  let done;
+  let failure;
+
+  const result = new Promise((resolve, reject) => {
+    done = resolve;
+    failure = reject;
+  });
+
+  Torch.switchState(newState, done, failure);
+  return result;
+}
+
 const TorchWithPermissionCheck = {
   ...Torch,
+  switchState,
   requestCameraPermission
 };
 

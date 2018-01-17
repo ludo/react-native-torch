@@ -1,6 +1,11 @@
 ## Release Notes
 
+### 1.1.2
+
+* Adds exception handling to Android
+
 ### 1.1.1
+
 * Fix for import issue
 
 ### 1.1.0

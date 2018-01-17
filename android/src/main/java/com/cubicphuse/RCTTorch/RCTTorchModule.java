@@ -10,6 +10,7 @@ import android.hardware.camera2.CameraAccessException;
 import android.hardware.camera2.CameraManager;
 import android.os.Build;
 
+import com.facebook.react.bridge.Callback;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
@@ -32,7 +33,7 @@ public class RCTTorchModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void switchState(Boolean newState) {
+    public void switchState(Boolean newState, Callback successCallback, Callback failureCallback) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             CameraManager cameraManager =
                     (CameraManager) this.myReactContext.getSystemService(Context.CAMERA_SERVICE);
@@ -40,8 +41,10 @@ public class RCTTorchModule extends ReactContextBaseJavaModule {
             try {
                 String cameraId = cameraManager.getCameraIdList()[0];
                 cameraManager.setTorchMode(cameraId, newState);
-            } catch (CameraAccessException e) {
-                e.printStackTrace();
+                successCallback.invoke(true);
+            } catch (Exception e) {
+                String errorMessage = e.getMessage();
+                failureCallback.invoke("Error: " + errorMessage);
             }
         } else {
             Camera.Parameters params;

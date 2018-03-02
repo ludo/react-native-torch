@@ -1,5 +1,9 @@
 ## Release Notes
 
+### 1.1.3
+
+* Android: removed Google Cloud Messaging dependency (#7, #8)
+
 ### 1.1.2
 
 * Adds exception handling to Android

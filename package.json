@@ -17,6 +17,7 @@
     "torch",
     "flashlight"
   ],
+  "homepage": "https://github.com/ludo/react-native-torch#readme",
   "author": "Ludo van den Boom <ludo@cubicphuse.nl> (https://github.com/ludo)",
   "license": "MIT"
 }

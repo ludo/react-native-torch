@@ -15,6 +15,16 @@ npm install --save react-native-torch
 react-native link react-native-torch
 ```
 
+### Manual install
+#### iOS
+1. `npm install react-native-torch --save`
+2. In XCode, in the project navigator, right click `Libraries` ➜ `Add Files to [your project's name]`
+3. Go to `node_modules` ➜ `react-native-torch` and add `RCTTorch.xcodeproj`
+4. Expand the `RCTTorch.xcodeproj` ➜ `Products` folder
+5. In XCode, in the project navigator, select your project. Add `libRCTTorch.a` to your project's `Build Phases` ➜ `Link Binary With Libraries`
+6. Click `RCTTorch.xcodeproj` in the project navigator and go the `Build Settings` tab. Make sure 'All' is toggled on (instead of 'Basic'). In the `Search Paths` section, look for `Header Search Paths` and make sure it contains both `$(SRCROOT)/../../react-native/React` and `$(SRCROOT)/../../../React` - mark both as `recursive`.
+
+
 ## Usage
 
 ### Without permissions check

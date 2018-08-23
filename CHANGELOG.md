@@ -1,5 +1,9 @@
 ## Release Notes
 
+### 1.1.4
+
+* iOS: fixes pod install issue (#10)
+
 ### 1.1.3
 
 * Android: removed Google Cloud Messaging dependency (#7, #8)

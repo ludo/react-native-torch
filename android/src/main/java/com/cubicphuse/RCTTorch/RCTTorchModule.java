@@ -49,7 +49,7 @@ public class RCTTorchModule extends ReactContextBaseJavaModule {
         } else {
             Camera.Parameters params;
 
-            if (!isTorchOn) {
+            if (newState) {
                 camera = Camera.open();
                 params = camera.getParameters();
                 params.setFlashMode(Camera.Parameters.FLASH_MODE_TORCH);

@@ -1,5 +1,9 @@
 ## Release Notes
 
+### 1.2.0
+
+* Take the values defined in rootProject for Gradle file (#25)
+
 ### 1.1.5
 
 * Added minimal .npmignore to avoid publishing build folders (#13)
